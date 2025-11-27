@@ -115,56 +115,85 @@ h2{font-size:1.6rem; margin:0 0 8px}
         width: 60%;
     }
 }
+.hero {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 72px;
+    background: radial-gradient(circle at center,
+        rgba(10, 40, 80, 0.55) 0%,
+        rgba(5, 20, 40, 0.95) 60%,
+        #031018 100%
+    );
+    overflow: hidden;
+}
+
+/* Logo grande translucida */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../img/logoawtech.png');
-    background-size: 60%;    /* tamanho da logo no fundo */
-    background-position: center center;
+    background-image: url('assets/img/logoawtech.png');
+    background-size: 60%;
+    background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.35;           /* transparência da logo */
-    z-index: 1;              /* atrás do conteúdo */
-    filter: brightness(0.8);
+    opacity: 0.18;
+    filter: blur(2px) brightness(1.1);
+    z-index: 1;
 }
 
-/* garantir que o conteúdo fique por cima da logo */
-.hero-inner {
-    position: relative;
-    z-index: 3;
-}
-
+/* Overlay suave */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55); /* escurece o fundo, deixando a logo suave */
+    background: rgba(0,0,0,0.45);
     z-index: 2;
 }
 
+/* Conteúdo */
+.hero-inner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    animation: fadeUp .9s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 3.6rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.hero .lead {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    margin-bottom: 24px;
+}
+
+/* Mobile */
 @media (max-width: 720px) {
-
-    /* Aumentar a logo no fundo */
+    .hero {
+        min-height: 65vh;
+    }
     .hero::before {
-        background-size: 300%;  /* maior e mais visível no mobile */
-        opacity: 0.25;          /* mais forte no mobile */
+        background-size: 230%;
+        opacity: 0.22;
     }
-
-    /* Ajustar alinhamento do conteúdo */
-    .hero-inner {
-        text-align: center;     /* centraliza tudo */
-        padding: 40px 0 0 0;    /* sobe o conteúdo */
-    }
-
     .hero h1 {
         font-size: 2.4rem;
     }
-
-    .lead {
+    .hero .lead {
         font-size: 1rem;
-    }
-
-    /* Reduzir o escurecimento para deixar a logo melhor */
-    .hero-overlay {
-        background: rgba(0,0,0,0.35);
     }
 }
