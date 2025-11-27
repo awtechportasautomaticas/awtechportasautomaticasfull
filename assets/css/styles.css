@@ -284,7 +284,7 @@ section::after {
 
     /* Aumentar a logo no fundo */
     .hero::before {
-        background-size: 500%;  /* maior e mais visível no mobile */
+        background-size: 1000%;  /* maior e mais visível no mobile */
         opacity: 0.25;          /* mais forte no mobile */
     }
 
