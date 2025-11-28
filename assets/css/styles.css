@@ -30,7 +30,11 @@
     overflow: hidden;
 }
 
-/* Logo grande translucida */
+.hero {
+    background: url("../img/fundo-awtech.jpg") no-repeat center center/contain;
+    background-size: contain; /* para a logo não ficar gigante */
+    opacity: 0.15; /* opcional, caso queira mais suave */
+}/* Logo grande translucida */
 .hero::before {
     content: "";
     position: absolute;
