@@ -411,3 +411,54 @@ section::after {
     border: none;
     display: block;
 }
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo de fundo — DESKTOP */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/img/fundo-awtech.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 420px; /* tamanho ideal desktop */
+    
+    opacity: 0.22;
+    
+    /* EFEITO PREMIUM */
+    filter: blur(2px) brightness(1.12) saturate(1.4);
+    mix-blend-mode: screen; /* glow suave */
+    
+    z-index: 1;
+}
+
+/* Overlay escuro acima da logo */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 10, 20, 0.60);
+    z-index: 2;
+}
+
+/* Conteúdo sempre acima */
+.hero-inner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 720px) {
+    .hero::before {
+        background-size: 260px; /* reduzido e proporcional */
+        opacity: 0.24;
+        filter: blur(1px) brightness(1.15) saturate(1.3);
+    }
+
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.45); /* deixa mais visível no mobile */
+    }
+}
