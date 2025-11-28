@@ -30,22 +30,17 @@
     overflow: hidden;
 }
 
-.hero {
-    background: url("../img/fundo-awtech.jpg") no-repeat center center/contain;
-    background-size: contain; /* para a logo não ficar gigante */
-    opacity: 0.15; /* opcional, caso queira mais suave */
-}/* Logo grande translucida */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('assets/img/fundo-awtech.jpg');
+    background-image: url("../img/fundo-awtech.jpg");
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.18;
-    filter: blur(2px) brightness(1.1);
+    opacity: 0.22;
     z-index: 1;
+    filter: blur(1px) brightness(1.05);
 }
 
 /* Overlay suave */
@@ -262,13 +257,13 @@ section::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../img/fundo-awtech.jpg');
-    background-size: 60%;    /* tamanho da logo no fundo */
-    background-position: center center;
+    background-image: url("../img/fundo-awtech.jpg");
+    background-size: 60%;
+    background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.35;           /* transparência da logo */
-    z-index: 1;              /* atrás do conteúdo */
-    filter: brightness(0.8);
+    opacity: 0.22;
+    z-index: 1;
+    filter: blur(1px) brightness(1.05);
 }
 
 /* garantir que o conteúdo fique por cima da logo */
@@ -311,17 +306,7 @@ section::after {
         background: rgba(0,0,0,0.35);
     }
 }
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("assets/img/fundo-awtech.jpg");
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.18;
-    z-index: 1;
-}
+
 
 
 .hero {
@@ -330,29 +315,6 @@ section::after {
 }
 
 /* Forçar que o ::before exista e tenha dimensão */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;                   /* ocupa toda a área da hero */
-  display: block;
-  pointer-events: none;       /* não atrapalha cliques */
-  z-index: 1;                 /* entre o background e o conteúdo (ajustaremos abaixo) */
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;   /* garante proporcionalidade */
-  opacity: 0.22;              /* ajuste a opacidade desejada */
-  filter: blur(1px) brightness(1.05);
-
-  /* Tentativa de múltiplos caminhos — o browser usa o primeiro que carregar com sucesso */
-  /* 1) Caminho absoluto para GitHub Pages se seu site está em /test/ */
-  /* 2) Caminho relativo padrão (do CSS) */
-  /* 3) Caminho subindo um nível — caso seu CSS esteja em pasta assets/css/ */
-  background-image:
-    url("/test/assets/img/fundo-awtech.jpg"),
-    url("assets/img/fundo-awtech.jpg"),
-    url("../assets/img/fundo-awtech.jpg");
-  /* Caso seu repositório tenha outro nome, substitua /test/ pelo nome do repositório */
-}
 
 /* Garantir que o overlay não fique acima da logo (temporário) */
 .hero-overlay {
