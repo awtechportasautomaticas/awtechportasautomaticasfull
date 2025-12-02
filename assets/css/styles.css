@@ -271,7 +271,7 @@ section::after {
 
 @media (max-width: 720px) {
     .hero::before {
-        background-size: 260px;  /* TAMANHO PERFEITO */
+        background-size: 400px;  /* TAMANHO PERFEITO */
         opacity: 0.22;
         background-position: center top;
         filter: brightness(1.05);
